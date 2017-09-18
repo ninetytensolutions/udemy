@@ -78,7 +78,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   config.assets.paths << Rails.root.join("css", "images", "javascripts", "js","fonts","stylesheets")
   
-  config.serve_static_assets = true
-  config.assets.initialize_on_precompile = true
+  config.assets.compile = true
   
 end
