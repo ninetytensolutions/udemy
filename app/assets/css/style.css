@@ -957,18 +957,7 @@ input:-ms-input-placeholder {
 
 /*Hire Us Area*/
 
-.hire-content{
-    background: url(hire-us.png) no-repeat center top scroll;
-    background-size
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    width: 100%;
-    overflow: hidden;
-    max-height: 500px;
 
-}
 .img-overlay{
     background-color: rgba(245, 216, 150, 0.5);
     width: 100%;
