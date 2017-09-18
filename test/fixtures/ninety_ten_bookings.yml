@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2017-09-18
+  time: 2017-09-18 11:37:43
+  firstName: MyText
+  lastName: MyText
+  phoneNumber: MyText
+  noOfGuests: 1
+  comments: MyText
+  status: MyString
+  username: MyString
+
+two:
+  date: 2017-09-18
+  time: 2017-09-18 11:37:43
+  firstName: MyText
+  lastName: MyText
+  phoneNumber: MyText
+  noOfGuests: 1
+  comments: MyText
+  status: MyString
+  username: MyString

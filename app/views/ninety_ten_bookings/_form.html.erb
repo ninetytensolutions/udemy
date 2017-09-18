@@ -1,0 +1,53 @@
+<%= form_for(@ninety_ten_booking) do |f| %>
+  <% if @ninety_ten_booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ninety_ten_booking.errors.count, "error") %> prohibited this ninety_ten_booking from being saved:</h2>
+
+      <ul>
+      <% @ninety_ten_booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= f.date_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.time_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :firstName %><br>
+    <%= f.text_area :firstName %>
+  </div>
+  <div class="field">
+    <%= f.label :lastName %><br>
+    <%= f.text_area :lastName %>
+  </div>
+  <div class="field">
+    <%= f.label :phoneNumber %><br>
+    <%= f.text_area :phoneNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :noOfGuests %><br>
+    <%= f.number_field :noOfGuests %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br>
+    <%= f.text_area :comments %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
