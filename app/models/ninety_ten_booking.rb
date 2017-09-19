@@ -4,7 +4,7 @@ class NinetyTenBooking < ActiveRecord::Base
     validates :time, presence: true
     validates :firstName, presence: true
     validates :lastName, presence: true
-    validates :phoneNumber, presence: true { with: /((\w+\s?-?\w+)(,|\z))/i, message: "Please enter in a mobile number"
+    validates :phoneNumber, presence: true
     validates :noOfGuests, presence: true
     validates :username, presence: true
 
