@@ -1,7 +1,11 @@
 <h1>Create a new article</h1>
 
-<h1>The following errors occurred</h1>
+<p>
+    <%= link_to "View All Articles", articles_path %>
+</p>
+
 <% if @article.errors.any? %>
+<h2>The following errors occurred</h2>
 <% @article.errors.full_messages.each do |msg| %>
 <ul>
     <li><%= msg %></li>

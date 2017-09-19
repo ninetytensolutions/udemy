@@ -1,6 +1,13 @@
 <h1>this is the show page</h1>
 
 <p>
+    <%= link_to "View All Articles", articles_path %>
+</p>
+<p>
+    <%= link_to "Edit", edit_article_path(@article) %>
+</p>
+
+<p>
     Title: <%= @article.title %>
 </p>
 <p>
