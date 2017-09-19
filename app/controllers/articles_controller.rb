@@ -35,8 +35,6 @@ class ArticlesController < ApplicationController
 
     def destroy
 
-        set_param
-        
         @article.destroy
         
         flash[:notice] = "Article was successfully deleted"
