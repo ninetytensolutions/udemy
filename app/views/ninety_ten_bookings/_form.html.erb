@@ -1,53 +1,96 @@
-<%= form_for(@ninety_ten_booking) do |f| %>
-  <% if @ninety_ten_booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ninety_ten_booking.errors.count, "error") %> prohibited this ninety_ten_booking from being saved:</h2>
+<%= render 'shared/errors', obj:@ninety_ten_booking %>
 
-      <ul>
-      <% @ninety_ten_booking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class='row'>
+    <div class='col-xs-12'>    
+        <%= form_for(@ninety_ten_booking, :html => {class: "form-horizontal", role: "form"}) do |f|  %>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :date %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.date_select :date, class: "form-control"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :time %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.time_select :time, class: "form-control"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :firstName %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :firstName, class: "form-control", placeholder: "Enter the First Name of the Guest", autofocus: true%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :lastName %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :lastName, class: "form-control", placeholder: "Enter the Last Name of the Guest"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :phoneNumber %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :phoneNumber, class: "form-control", placeholder: "Enter the phone number of the Guest"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :noOfGuests %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.number_field :noOfGuests, class: "form-control", placeholder: "2"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :status %>
+            </div>
+            <div class="col-sm-8" >
+                <div class="form-control" >
+                    <%= f.select :status, ['Confirmed','Cancelled'] %>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :username %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :username, class: "form-control", placeholder: "pereira.andrew", autofocus: true%>
+            </div>
+        </div>        
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :comments %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_area :comments, class: "form-control", rows: "10", placeholder: "Enter any special requests or notes for the booking"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <%= f.submit class: 'btn btn-primary btn-lg'%>
+            </div>
+        </div>        
     </div>
-  <% end %>
+</div>
 
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :time %><br>
-    <%= f.time_select :time %>
-  </div>
-  <div class="field">
-    <%= f.label :firstName %><br>
-    <%= f.text_area :firstName %>
-  </div>
-  <div class="field">
-    <%= f.label :lastName %><br>
-    <%= f.text_area :lastName %>
-  </div>
-  <div class="field">
-    <%= f.label :phoneNumber %><br>
-    <%= f.text_area :phoneNumber %>
-  </div>
-  <div class="field">
-    <%= f.label :noOfGuests %><br>
-    <%= f.number_field :noOfGuests %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br>
-    <%= f.text_area :comments %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
+<div class="col-xs-4 col-xs-offset-4">
+    [ <%= link_to "Cancel and return to bookings listing", ninety_ten_bookings_path %> ]
+</div>
+
+
+
+
+
