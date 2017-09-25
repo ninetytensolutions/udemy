@@ -10,7 +10,7 @@ class SalesforceModel < ActiveRecord::Base
     end
 
     establish_connection ENV['HEROKUCONNECT_URL']
-	attr_protected :createddate, :systemmodstamp, :lastmodifieddate
+	#attr_protected :createddate, :systemmodstamp, :lastmodifieddate
 
 	def hc_errors
 		HerokuconnectTriggerLog.where(:record_id => self.id, :state => 'FAILED').order("id DESC").all	
