@@ -1,0 +1,96 @@
+<%= render 'shared/errors', obj:@ninety_ten_booking %>
+
+<div class='row'>
+    <div class='col-xs-12'>    
+        <%= form_for(@ninety_ten_booking, :html => {class: "form-horizontal", role: "form"}) do |f|  %>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :date__c %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.date_select :date__c, class: "form-control"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :time__c %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.time_select :time__c, class: "form-control"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :firstname__c %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :firstname__c, class: "form-control", placeholder: "Enter the First Name of the Guest", autofocus: true%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :lastname__c %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :lastname__c, class: "form-control", placeholder: "Enter the Last Name of the Guest"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :phonenumber__c %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :phonenumber__c, class: "form-control", placeholder: "Enter the phone number of the Guest"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :guests__c %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.number_field :noOfGuests__c, class: "form-control", placeholder: "2"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :status__c %>
+            </div>
+            <div class="col-sm-8" >
+                <div class="form-control" >
+                    <%= f.select :status__c, ['Confirmed','Cancelled'] %>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :username__c %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_field :username__c, class: "form-control", placeholder: "pereira.andrew", autofocus: true%>
+            </div>
+        </div>        
+        <div class="form-group">
+            <div class="control-label col-sm-2">
+                <%= f.label :comments__c %>
+            </div>
+            <div class="col-sm-8">
+                <%= f.text_area :comments__c, class: "form-control", rows: "10", placeholder: "Enter any special requests or notes for the booking"%>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <%= f.submit class: 'btn btn-primary btn-lg'%>
+            </div>
+        </div>        
+    </div>
+</div>
+
+<% end %>
+<div class="col-xs-4 col-xs-offset-4">
+    [ <%= link_to "Cancel and return to bookings listing", ninety_ten_bookings_path %> ]
+</div>
+
+
+
+
+

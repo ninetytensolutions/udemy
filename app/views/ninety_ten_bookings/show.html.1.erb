@@ -1,15 +1,15 @@
 <h2 align="center">Booking for: <%= @ninety_ten_booking.firstName %> <%= @ninety_ten_booking.lastName %></h2>
 <div class="well col-xs-8 col-xs-offset-2">
     <h4 class="center description"><strong>Booking Details</strong></h4>
-    <hr>Date: <%= @ninety_ten_booking.date__c %>
-    <hr>Time: <%= @ninety_ten_booking.time__c.strftime("%H:%M") %>
-    <hr>First Name: <%= @ninety_ten_booking.firstname__c %>
-    <hr>Last Name: <%= @ninety_ten_booking.lastname__c %>
-    <hr>Phone Number: <%= @ninety_ten_booking.phonenumber__c %>
-    <hr>Number of Guests: <%= @ninety_ten_booking.guests__c %>
-    <hr>Status: <%= @ninety_ten_booking.status__c %>
-    <hr>Username: <%= @ninety_ten_booking.username__c %>
-    <hr>Comments: <%= simple_format(@ninety_ten_booking.comments__c) %>
+    <hr>Date: <%= @ninety_ten_booking.date %>
+    <hr>Time: <%= @ninety_ten_booking.time.strftime("%H:%M") %>
+    <hr>First Name: <%= @ninety_ten_booking.firstName %>
+    <hr>Last Name: <%= @ninety_ten_booking.lastName %>
+    <hr>Phone Number: <%= @ninety_ten_booking.phoneNumber %>
+    <hr>Number of Guests: <%= @ninety_ten_booking.noOfGuests %>
+    <hr>Status: <%= @ninety_ten_booking.status %>
+    <hr>Username: <%= @ninety_ten_booking.username %>
+    <hr>Comments: <%= simple_format(@ninety_ten_booking.comments) %>
     <hr>
     <div class="ninety_ten_booking-actions">
         <%= link_to "Edit this ninety_ten_booking", edit_ninety_ten_booking_path(@ninety_ten_booking), class: "btn btn-xs btn-primary" %>
