@@ -69,6 +69,6 @@ class NinetyTenBookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ninety_ten_booking_params
-      params.require(:ninety_ten_booking).permit(:date, :time, :firstName, :lastName, :phoneNumber, :noOfGuests, :comments, :status, :username)
+      params.require(:ninety_ten_booking).permit(:date__c, :time__c, :firstname__c, :lastname__c, :phonenumber__c, :guests__c, :comments__c, :status__c, :username__c)
     end
 end
