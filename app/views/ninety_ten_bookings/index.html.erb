@@ -10,13 +10,13 @@
     <div class="col-xs-8 col-xs-offset-2">
         <div class="well well-lg">
             <div class="ninety_ten_booking-title">
-               [ <%= link_to ninety_ten_booking.firstname__c, ninety_ten_booking_path(ninety_ten_booking) %> <%= link_to ninety_ten_booking.lastname__, ninety_ten_booking_path(ninety_ten_booking) %> ]
+               [ <%= link_to ninety_ten_booking.firstName, ninety_ten_booking_path(ninety_ten_booking) %> <%= link_to ninety_ten_booking.lastName, ninety_ten_booking_path(ninety_ten_booking) %> ]
             </div>
             <div class="ninety_ten_booking-body">
-                Date: <%= ninety_ten_booking.date__c  %><br>
-                Time: <%= ninety_ten_booking.time__c.strftime("%H:%M")  %><br>
-                Guests:<%= ninety_ten_booking.guests__c  %><br>
-                Status: <%= ninety_ten_booking.status__c  %>
+                Date: <%= ninety_ten_booking.date  %><br>
+                Time: <%= ninety_ten_booking.time.strftime("%H:%M")  %><br>
+                Guests:<%= ninety_ten_booking.noOfGuests  %><br>
+                Status: <%= ninety_ten_booking.status  %>
             </div>
             <div class="ninety_ten_booking-actions">
                 <%= link_to "Edit this ninety_ten_booking", edit_ninety_ten_booking_path(ninety_ten_booking), class: "btn btn-xs btn-primary" %>
