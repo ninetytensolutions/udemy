@@ -1,4 +1,4 @@
 class NinetyTenBooking < ActiveRecord::Base
-    self.table_name =  'booking__c'
+    self.table_name =  'ninetytenbookings.booking__c'
     
 end
