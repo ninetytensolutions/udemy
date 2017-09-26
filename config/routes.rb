@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   
   
+  scope '/hooks', :controller => :hooks do
+    post :booking_created
+  end
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
