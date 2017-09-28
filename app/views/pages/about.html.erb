@@ -1,3 +1,5 @@
-<h1>This is the Pages about page</h1>
-
-<%= link_to 'Home', root_path %>
+<%= 
+require 'open-uri'
+result = open('https://requestb.in/159f31g1')
+result.lines { |f| f.each_line {|line| p line} }
+%>
