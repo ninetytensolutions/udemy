@@ -172,6 +172,12 @@
               $("#spokenResponse").addClass("is-active").find(".spoken-response__text").html(val);
             }
           </script>
+        
+        <script src="assets/vendor/jquery-1.11.2.min.js"></script>
+        <script src="assets/vendor/bootstrap.min.js"></script>
+
+        <script src="assets/plugins.js"></script>
+        <script src="assets/main.js"></script>
 
     </head>
     
@@ -435,175 +441,184 @@
 
                         </div>
                     </div>	
-
-
-                    <!-- Example row of columns -->
-
+                </div>                    
+                
+                <div class="row">                    
+                
                     <div class="portfolio-wrap">
-
-                        <div class="portfolio">
-
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="portfolio-item">
-                                    <h4>MY ARTIFICAL INTELLIGENCE BOT</h4>
-                                    <p>
-                                        Try out my reseturant booking bot, which will add a reservation to the booking table. I am currently in the process of building a Webhook to integrate with Heroku to store the inputs in the SQL DB. You can interact with the bot by using:
-                                    </p>
-                                    <p>
-                                        Facebook Messenger
-                                    </p>
-                                
-                                <div class="fb-messengermessageus" 
-                                  messenger_app_id="1011691685637550" 
-                                  page_id="361699827595441"
-                                  color="blue"
-                                  size="xlarge" >
-                                </div>  
-                                
-                                <p>
-                                    <br>Speech Recognition by clicking the "Speak" button
-                                </p>
-                                
-                                    <div>
-                                      <div class="container">
-                                        <input id="speech" type="text">
-                                        <button id="rec" class="btn pt-btn btn-primary">Speak</button>
-                                        <div id="spokenResponse" class="spoken-response">
-                                          <div class="spoken-response__text"></div>
-                                        </div>
-                                      </div>
-                                      <!--<div class="debug">
-                                        <div class="debug__btn btn">
-                                          Debug JSON results
-                                        </div>
-                                        <div class="debug__content">
-                                          <textarea id="response" cols="40" rows="20"></textarea>
-                                        </div>
-                                      </div>-->
-                                    
-                                      <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet" type="text/css">
-                                    </div>
-                                
-                                    <p>
-                                        <br>Live Chat 
-                                    </p>
-                                    
-                                <div>
-                                    <iframe
-                                    width="600"
-                                    height="350"
-                                    src="https://console.api.ai/api-client/demo/embedded/e60bfbf9-ebed-4cf0-96bc-610791787a5e">
-                                    </iframe>
-                                </div> 
-                                
-                                <!--<div>SALESFORCE CHAT AGENT
-                                    <img id="liveagent_button_online_5737F000000Xcwd" style="display: none; border: 0px none; cursor: pointer" onclick="liveagent.startChat('5737F000000Xcwd')" src="https://chat-ninetyten-developer-edition.ap5.force.com/resource/1498482863000/OnlineButton" /><img id="liveagent_button_offline_5737F000000Xcwd" style="display: none; border: 0px none; " src="https://chat-ninetyten-developer-edition.ap5.force.com/resource/1498482944000/OfflineButton" />
-                                    <script type="text/javascript">
-                                    if (!window._laq) { window._laq = []; }
-                                    window._laq.push(function(){liveagent.showWhenOnline('5737F000000Xcwd', document.getElementById('liveagent_button_online_5737F000000Xcwd'));
-                                    liveagent.showWhenOffline('5737F000000Xcwd', document.getElementById('liveagent_button_offline_5737F000000Xcwd'));
-                                    });</script>
-                                    
-                                    <script type='text/javascript' src='https://c.la1-c1-ukb.salesforceliveagent.com/content/g/js/40.0/deployment.js'></script>
-                                    <script type='text/javascript'>
-                                    liveagent.init('https://d.la1-c1-ukb.salesforceliveagent.com/chat', '5727F000000XfYS', '00D7F000000s7gb');
-                                    </script>
-                                </div>-->
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="portfolio">
-
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <div class="portfolio-item">
-                                    <h4>MY SALESFORCE INTEGRATION</h4>
-                                    <p>
-                                        Fill in this form to generate a support ticket and obtain a salesforce case number via the entered email address.heroku in
-                                    </p>
-                                    <div>
-                                        <!--  ----------------------------------------------------------------------  -->
-                                        <!--  NOTE: Please add the following <FORM> element to your page.             -->
-                                        <!--  ----------------------------------------------------------------------  -->
-                                        
-                                        <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
-                                        
-                                        <input type=hidden name='captcha_settings' value='{"keyname":"andrew","fallback":"true","orgId":"00D7F000000s7gb","ts":""}'>
-                                        <input type=hidden name="orgid" value="00D7F000000s7gb">
-                                        <input type=hidden name="retURL" value="https://ninetytensolutions.herokuapp.com/">
-                                        
-                                        <!--  ----------------------------------------------------------------------  -->
-                                        <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-                                        <!--  these lines if you wish to test in debug mode.                          -->
-                                        <!--  <input type="hidden" name="debug" value=1>                              -->
-                                        <!--  <input type="hidden" name="debugEmail"                                  -->
-                                        <!--  value="pereira.andrew@gmail.com">                                       -->
-                                        <!--  ----------------------------------------------------------------------  -->
-                                        
-                                        
-                                        <table id="table" width=300 border="0">				
-				                            <tr>
-					                            <td width="45%"><label for="name">Name</label></td>
-					                            <td width="55%" align="center"><input  id="name" maxlength="80" name="name" size="20" type="text"/></td>
-				                            </tr>
-				                            <tr>
-					                            <td width="45%"><label for="email">Email</label></td>
-					                            <td width="55%" align="center"><input  id="email" maxlength="80" name="email" size="20" type="text"/></td>
-				                            </tr>
-				                            <tr>
-					                            <td width="45%"><label for="phone">Phone</label></td>
-					                            <td width="55%" align="center"><input  id="phone" maxlength="40" name="phone" size="20" type="text" /></td>
-				                            </tr>
-				                            <tr>
-					                            <td width="45%"><label for="subject">Subject</label></td>
-					                            <td width="55%" align="center"><input  id="subject" maxlength="80" name="subject" size="20" type="text" /></td>
-				                            </tr>
-				                            <tr>
-					                            <td width="45%"><label for="description">Description</label></td>
-					                            <td width="55%" align="center"><textarea name="description"></textarea><br></td>
-				                            </tr>
-				                        </table>
-				                        
-                                        <input class="btn pt-btn btn-primary" type="submit" name="submit">
-                                        
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
                         
                         <div class="portfolio">
-
-                            <div class="col-md-12 col-sm-12 col-xs-12">
-                                <div class="portfolio-item">
-                                    <h4>MY USER INTERFACE</h4>
-                                    
-                                    <p>
-                                        A simple app to handle Bookings. It data also integrates and syncs with a Salesforce custom object via Heroku Connect
-                                    </p>
+                            
+                            <div class="col-sm-12 col-md-12">
                                 
-                                <div>
-                                    <iframe style="height: 700px; overflow:scroll; width: 100%" src="/ninety_ten_bookings/" frameBorder="0"></iframe>
-                                </div>                             
+                                <div class="portfolio-item">
+                                    
+                                    <div class="caption">
+                                          
+                                        <h4>MY ARTIFICAL INTELLIGENCE BOT</h4>
+                                            <p>
+                                            Try out my reseturant booking bot, which will add a reservation to the booking table. I am currently in the process of building a Webhook to integrate with Heroku to store the inputs in the SQL DB. You can interact with the bot by using:
+                                            </p>
+                                        <p>
+                                            Facebook Messenger
+                                        </p>
+                                                
+                                        <div class="fb-messengermessageus" 
+                                              messenger_app_id="1011691685637550" 
+                                              page_id="361699827595441"
+                                              color="blue"
+                                              size="xlarge" >
+                                        </div>
+                
+                                        <p>
+                                            <br>Speech Recognition by clicking the "Speak" button
+                                        </p>
+                                            
+                                        <div>
+                                            
+                                            <input id="speech" type="text">
+                                            <button id="rec" class="btn pt-btn btn-primary">Speak</button>
+                                            
+                                            <div id="spokenResponse" class="spoken-response">
+                                            
+                                                <div class="spoken-response__text"></div>
+                                            
+                                            </div>
+                                            
+                                        </div>
+                                            <!--<div class="debug">
+                                                <div class="debug__btn btn">
+                                                Debug JSON results
+                                            </div>
+                                            <div class="debug__content">
+                                              <textarea id="response" cols="40" rows="20"></textarea>
+                                            </div>
+                                          </div>-->
+                                                    
+                                          <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet" type="text/css">
+                                    
+                                        <p>
+                                            <br>Live Chat 
+                                        </p>
+                                        
+                                        <iframe
+                                            width="600"
+                                            height="350"
+                                            src="https://console.api.ai/api-client/demo/embedded/e60bfbf9-ebed-4cf0-96bc-610791787a5e">
+                                        </iframe>
+                                        
+                                    </div>
                                 
                                 </div>
+                            
                             </div>
-
+                            
+                            <div class="portfolio-item">
+                                    
+                                <div class="caption">
+                                  
+                                    <div class="col-sm-12 col-md-12">
+                                          
+                                        <div class="caption">
+                                                
+                                                <h4>MY SALESFORCE INTEGRATION</h4>
+                                            <p>
+                                                Fill in this form to generate a support ticket and obtain a salesforce case number via the entered email address.heroku in
+                                            </p>
+                                            
+                                            <div>
+                                                <!--  ----------------------------------------------------------------------  -->
+                                                <!--  NOTE: Please add the following <FORM> element to your page.             -->
+                                                <!--  ----------------------------------------------------------------------  -->
+                                                
+                                                <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+                                                
+                                                <input type=hidden name='captcha_settings' value='{"keyname":"andrew","fallback":"true","orgId":"00D7F000000s7gb","ts":""}'>
+                                                <input type=hidden name="orgid" value="00D7F000000s7gb">
+                                                <input type=hidden name="retURL" value="https://ninetytensolutions.herokuapp.com/">
+                                                
+                                                <!--  ----------------------------------------------------------------------  -->
+                                                <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+                                                <!--  these lines if you wish to test in debug mode.                          -->
+                                                <!--  <input type="hidden" name="debug" value=1>                              -->
+                                                <!--  <input type="hidden" name="debugEmail"                                  -->
+                                                <!--  value="pereira.andrew@gmail.com">                                       -->
+                                                <!--  ----------------------------------------------------------------------  -->
+                                                
+                                                
+                                                <table id="table" width=300 border="0">				
+        				                            <tr>
+        					                            <td width="45%"><label for="name">Name</label></td>
+        					                            <td width="55%" align="center"><input  id="name" maxlength="80" name="name" size="20" type="text"/></td>
+        				                            </tr>
+        				                            <tr>
+        					                            <td width="45%"><label for="email">Email</label></td>
+        					                            <td width="55%" align="center"><input  id="email" maxlength="80" name="email" size="20" type="text"/></td>
+        				                            </tr>
+        				                            <tr>
+        					                            <td width="45%"><label for="phone">Phone</label></td>
+        					                            <td width="55%" align="center"><input  id="phone" maxlength="40" name="phone" size="20" type="text" /></td>
+        				                            </tr>
+        				                            <tr>
+        					                            <td width="45%"><label for="subject">Subject</label></td>
+        					                            <td width="55%" align="center"><input  id="subject" maxlength="80" name="subject" size="20" type="text" /></td>
+        				                            </tr>
+        				                            <tr>
+        					                            <td width="45%"><label for="description">Description</label></td>
+        					                            <td width="55%" align="center"><textarea name="description"></textarea><br></td>
+        				                            </tr>
+        				                        </table>
+        				                        
+                                                <input class="btn pt-btn btn-primary" type="submit" name="submit">
+                                                
+                                                </form>
+                                            </div>
+                                            
+                                        </div>
+                            
+                                    </div>
+                                
+                                </div>                                
+                            
+                            </div> 
+                            
+                            
+                            <div class="portfolio-item">
+                                    
+                                <div class="caption">
+                                  
+                                    <div class="col-sm-12 col-md-12">
+                                          
+                                        <div class="caption">
+                                            
+                                            <p>
+                                                <h4>MY USER INTERFACE</h4>
+                                            </p>
+                                            <p>
+                                                A simple app to handle Bookings. It data also integrates and syncs with a Salesforce custom object via Heroku Connect
+                                            </p>
+                                        
+                                        
+                                            <iframe style="height: 600px; width: 100%" src="/ninety_ten_bookings/" frameBorder="0"></iframe>
+                                            
+                                        </div> 
+                                        
+                                    </div>
+                                
+                                </div>
+                                
+                            </div>
+                        
                         </div>
-
+                    
                     </div>
-                </div>
-            </div>
-
-
+                    
+                </div>    
+                
             <!-- /container -->       
         </section>
 
         <div class="scroll-top">
-
             <div class="scrollup">
                 <i class="fa fa-angle-double-up"></i>
             </div>
@@ -624,11 +639,5 @@
             </div>
 
         </footer>
-
-        <script src="assets/vendor/jquery-1.11.2.min.js"></script>
-        <script src="assets/vendor/bootstrap.min.js"></script>
-
-        <script src="assets/plugins.js"></script>
-        <script src="assets/main.js"></script>
     </body>
 </html>
