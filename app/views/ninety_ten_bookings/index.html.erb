@@ -9,7 +9,6 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">#</th>
       <th scope="col">First Name</th>
       <th scope="col">Date</th>
       <th scope="col">Guests</th>
@@ -19,37 +18,17 @@
   <tbody>
     
 <% @ninety_ten_bookings.each do |ninety_ten_booking| %>
-    
     <tr>
       <th scope="row"></th>
       <td><%= link_to ninety_ten_booking.firstname__c, ninety_ten_booking_path(ninety_ten_booking) %></td>
       <td><%= ninety_ten_booking.date__c  %></td>
-      <td>Guests:<%= ninety_ten_booking.guests__c  %></td>
+      <td><%= ninety_ten_booking.guests__c  %></td>
       <td><%= ninety_ten_booking.status__c  %></td>
       <td><%= link_to "Edit this ninety_ten_booking", edit_ninety_ten_booking_path(ninety_ten_booking), class: "btn btn-xs btn-primary" %></td>
       <td><%= link_to "Delete this ninety_ten_booking", ninety_ten_booking_path(ninety_ten_booking), method: :delete,
                                                                                     data: {confirm: "Are you sure you want to delete this Booking?"}, 
                                                                                     class: "btn btn-xs btn-danger" %></td>
     </tr>
-    
-    <div class="col-xs-8 col-xs-offset-2">
-        <div class="well well-lg">
-            <div class="ninety_ten_booking-title">
-               [ <%= link_to ninety_ten_booking.firstname__c, ninety_ten_booking_path(ninety_ten_booking) %> ]
-            </div>
-            <div class="ninety_ten_booking-body">
-                Date: <%= ninety_ten_booking.date__c  %><br>
-                Guests:<%= ninety_ten_booking.guests__c  %><br>
-                Status: <%= ninety_ten_booking.status__c  %>
-            </div>
-            <div class="ninety_ten_booking-actions">
-                <%= link_to "Edit this ninety_ten_booking", edit_ninety_ten_booking_path(ninety_ten_booking), class: "btn btn-xs btn-primary" %>
-                <%= link_to "Delete this ninety_ten_booking", ninety_ten_booking_path(ninety_ten_booking), method: :delete,
-                                                                                    data: {confirm: "Are you sure you want to delete this Booking?"}, 
-                                                                                    class: "btn btn-xs btn-danger" %>
-            </div>
-        </div>
-    </div>
 <% end %>
 
   </tbody>
