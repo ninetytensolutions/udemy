@@ -6,32 +6,31 @@
         </div>
 </div>
 
-<table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">First Name</th>
-          <th scope="col">Date</th>
-          <th scope="col">Guests</th>
-          <th scope="col">Status</th>
-          <th scope="col">Edit</th>
-          <th scope="col">Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-</table>
-<% @ninety_ten_bookings.each do |ninety_ten_booking| %>
-<table class="table">    
+<table class="table table-striped">
+  <thead>
     <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>Otto</td>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Date</th>
+      <th scope="col">Guests</th>
+      <th scope="col">Status</th>
     </tr>
-  </tbody>
-</table>
+  </thead>
+  <tbody>
     
+<% @ninety_ten_bookings.each do |ninety_ten_booking| %>
+    
+    <tr>
+      <th scope="row"></th>
+      <td><%= link_to ninety_ten_booking.firstname__c, ninety_ten_booking_path(ninety_ten_booking) %></td>
+      <td><%= ninety_ten_booking.date__c  %></td>
+      <td>Guests:<%= ninety_ten_booking.guests__c  %></td>
+      <td><%= ninety_ten_booking.status__c  %></td>
+      <td><%= link_to "Edit this ninety_ten_booking", edit_ninety_ten_booking_path(ninety_ten_booking), class: "btn btn-xs btn-primary" %></td>
+      <td><%= link_to "Delete this ninety_ten_booking", ninety_ten_booking_path(ninety_ten_booking), method: :delete,
+                                                                                    data: {confirm: "Are you sure you want to delete this Booking?"}, 
+                                                                                    class: "btn btn-xs btn-danger" %></td>
+    </tr>
     
     <div class="col-xs-8 col-xs-offset-2">
         <div class="well well-lg">
@@ -52,4 +51,7 @@
         </div>
     </div>
 <% end %>
+
+  </tbody>
+</table>
     
