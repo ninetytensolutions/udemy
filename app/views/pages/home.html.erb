@@ -38,141 +38,6 @@
 
         <script src="assets/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
         
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-          <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-          <script type="text/javascript">
-            <!-- var accessToken = "dce399808780466db898fad9bfae71fe",-->
-            var accessToken = "bd9ddd9bfed34b448980b0890182ccfe",
-              baseUrl = "https://api.api.ai/v1/",
-              $speechInput,
-              $recBtn,
-              recognition,
-              messageRecording = "Recording...",
-              messageCouldntHear = "I couldn't hear you, could you say that again?",
-              messageInternalError = "Oh no, there has been an internal server error",
-              messageSorry = "I'm sorry, I don't have the answer to that yet.";
-        
-            $(document).ready(function() {
-              $speechInput = $("#speech");
-              $recBtn = $("#rec");
-        
-              $speechInput.keypress(function(event) {
-                if (event.which == 13) {
-                  event.preventDefault();
-                  send();
-                }
-              });
-              $recBtn.on("click", function(event) {
-                switchRecognition();
-              });
-              $(".debug__btn").on("click", function() {
-                $(this).next().toggleClass("is-active");
-                return false;
-              });
-            });
-        
-            function startRecognition() {
-              recognition = new webkitSpeechRecognition();
-              recognition.continuous = false;
-                  recognition.interimResults = false;
-        
-              recognition.onstart = function(event) {
-                respond(messageRecording);
-                updateRec();
-              };
-              recognition.onresult = function(event) {
-                recognition.onend = null;
-                
-                var text = "";
-                  for (var i = event.resultIndex; i < event.results.length; ++i) {
-                    text += event.results[i][0].transcript;
-                  }
-                  setInput(text);
-                stopRecognition();
-              };
-              recognition.onend = function() {
-                respond(messageCouldntHear);
-                stopRecognition();
-              };
-              recognition.lang = "en-US";
-              recognition.start();
-            }
-          
-            function stopRecognition() {
-              if (recognition) {
-                recognition.stop();
-                recognition = null;
-              }
-              updateRec();
-            }
-        
-            function switchRecognition() {
-              if (recognition) {
-                stopRecognition();
-              } else {
-                startRecognition();
-              }
-            }
-        
-            function setInput(text) {
-              $speechInput.val(text);
-              send();
-            }
-        
-            function updateRec() {
-              $recBtn.text(recognition ? "Stop" : "Speak");
-            }
-        
-            function send() {
-              var text = $speechInput.val();
-              $.ajax({
-                type: "POST",
-                url: baseUrl + "query",
-                contentType: "application/json; charset=utf-8",
-                dataType: "json",
-                headers: {
-                  "Authorization": "Bearer " + accessToken
-                },
-                data: JSON.stringify({query: text, lang: "en", sessionId: "yaydevdiner"}),
-        
-                success: function(data) {
-                  prepareResponse(data);
-                },
-                error: function() {
-                  respond(messageInternalError);
-                }
-              });
-            }
-        
-            function prepareResponse(val) {
-              var debugJSON = JSON.stringify(val, undefined, 2),
-                spokenResponse = val.result.speech;
-        
-              respond(spokenResponse);
-              debugRespond(debugJSON);
-            }
-        
-            function debugRespond(val) {
-              $("#response").text(val);
-            }
-        
-            function respond(val) {
-              if (val == "") {
-                val = messageSorry;
-              }
-        
-              if (val !== messageRecording) {
-                var msg = new SpeechSynthesisUtterance();
-                msg.voiceURI = "native";
-                msg.text = val;
-                msg.lang = "en-US";
-                window.speechSynthesis.speak(msg);
-              }
-        
-              $("#spokenResponse").addClass("is-active").find(".spoken-response__text").html(val);
-            }
-          </script>
-        
         <script src="assets/vendor/jquery-1.11.2.min.js"></script>
         <script src="assets/vendor/bootstrap.min.js"></script>
 
@@ -221,7 +86,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="btn btn-primary" target="_blank" href="https://www.linkedin.com/in/andrew-pereira-a366849/"><i class="fa fa-linkedin"></i></a><label class="h4">ANDREW PEREIRA 0414150933</label>
+                        <a class="btn pt-btn btn-primary" target="_blank" href="https://www.linkedin.com/in/andrew-pereira-a366849/"><i class="fa fa-linkedin"></i></a><a href="tel:+61414150933" class="btn pt-btn btn-primary" role="button"><b>ANDREW PEREIRA +61414150933</b></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -246,10 +111,10 @@
 
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <div class="unique-apps">
-                               <h2>CUSTOMER SERVICE SOLUTIONS</h2>
-                                <p>
-                                    Robotics, AI, IVR, Web User Interface, demo samplers built with Salesforce, API.AI, Ruby, PHP and Heroku<br>
-                                </p>
+                               <h1>CUSTOMER SERVICE SOLUTIONS</h1>
+                                <h4>
+                                    Robotics, AI, IVR, Social Web channel solution samplers
+                                </h4>
                                 <!-- <div class="home-btn"><a href="assets/Andrew Pereira Resume - CV.docx"><button class="btn btn-primary">Download Resume <span><i class="fa fa-paper-plane"></i></span></button></a></div> -->
                             </div>
                         </div>
@@ -300,330 +165,76 @@
 
         </header>
 
-        <!-- Sections -->
-        <!--
-        <section id="our-history" class="sections">
-            <div class="container">
-
-                <div class="row">
-
-                    <div class="main-history">
-
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="history-img">
-                                <img src="assets/history-img.png" alt="" />
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="history-wrapper">
-                                <div class="history-heading"> 
-                                    <h5 class="our-history">My Story</h5>
-                                </div>
-
-                                <div class="history-content">
-                                    <p>
-                                        I started my IT career in GE as a work experience student in Uni. Upon completition I was offerred a position as a network admin and was fortunate enough to be mentored by a senior technical lead. In 2008 I learnt abit about SIP / VoIP before it randomly took off and was offerred a role with the state government to look after contact centre solutions for NSW Justice and FACS.
-                                    </p>
-
-                                    <p>
-                                        Initially I was in operational support and I was promoted to a team leader type role a few years into it managing a small team that maintained apps and assets being used 24 * 7.
-                                    </p>
-
-                                    <p>
-                                        Service NSW then approached me to work on a short 6 month secondment to deploy a few customer service ICT solutions. The projects kept piling up as the department grew and I hanged around for another year before I was offerred an interesting role with Inference solutions.
-                                    </p>
-                                    
-                                    <p>
-                                        Throughout my career I have been given a mixed bag of opportunties, which has been great as I have had a taste of a few products and languages. I consider myself a jack of all trades in the ICT industry and looking forward to the next challenge. 
-                                    </p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="our-project" class="sections">
-            <div class="container">
-
-                <div class="heading">
-                    <div class="title text-center arrow-left">
-
-                        <h4 class="">Skill Set Summary</h4>
-                        <img class="hidden-xs" src="assets/right-arrow.png" alt="" />
-                    </div>
-                </div>
-
-                <div class="row">
-                    
-                    <div class="main-project text-center">
-                        
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/projects/1.png" alt="" /></div>
-                                <h5>13Y ICT INDUSTRY EXP</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/projects/2.png" alt="" /></div>
-                                <h5>2.5Y MANAGEMENT EXP</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/projects/3.png" alt="" /></div>
-                                <h5>3Y PROJECT MGMT</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/projects/4.png" alt="" /></div>
-                                <h5>4Y SERVICE MGMT</h5>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row">
-                    
-                    <div class="main-project text-center">
-                
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/projects/5.png" alt="" /></div>
-                                <h5>10Y SUPPORT</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/projects/6.png" alt="" /></div>
-                                <h5>3Y DEVELOPMENT</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/projects/7.png" alt="" /></div>
-                                <h5>4Y SENIOR ANALYST</h5>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 col-sm-6 col-xs-12">
-                            <div class="project-item">
-                                <div class="project-photo"><img src="assets/projects/8.png" alt="" /></div>
-                                <h5>3Y AGILE, PRINCE2</h5>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </section> 
-        -->
 
 <section id="our-portfolio" class="sections">
     
             <div class="container">
 
                 <div class="row">
-                    <div class="heading">
-                        <div class="title text-center arrow-right">
-                            <h4 class="">WORK SAMPLES</h4>
-                            <img class="hidden-xs" src="assets/right-arrow.png" alt="" />
-
-                        </div>
-                    </div>	
-                </div>                    
-                
-                <div class="row">                    
-                
-                    <div class="portfolio-wrap">
-                        
-                        <div class="portfolio">
-                            
-                            <div class="col-sm-12 col-md-12">
-                                
-                                <div class="portfolio-item">
-                                    
-                                    <div class="caption">
-                                          
-                                        <h4>ROBOTICS</h4>
-                                        
-                                        <p>
-                                            Watch the video to view RPA in action
-                                        </p>
-                                        
-                                        <h4>MY ARTIFICAL INTELLIGENCE BOT</h4>
-                                            <p>
-                                            Try out my reseturant booking bot, which will add a reservation to the booking table. You can interact with the bot by:
-                                            </p>
-                                        
-                                        <p>
-                                            <b>1. Calling bot on <a href="tel:+61255143010">+61255143010</a><br></b>
-                                        </p>
-                                        
-                                        <p>
-                                            <b>2. Facebook Messenger Bot</b>
-                                        </p>
-                                                
-                                        <div class="fb-messengermessageus" 
+                  
+                  <div class="col-sm-6 col-md-4">
+                      <div class="caption">
+                        <h4>AI <B>IVR</B></h4>
+                        <p>Speech Recognition & Keypress</p>
+                        <a href="tel:+61255143010" class="btn btn-default" role="button"><b>Call Bot +61255143010</b></a>
+                        <br>
+                        <br>
+                        <br>
+                        <h4>AI <B>SOCIAL</B></h4>
+                        <p>Facebook enabled</p>
+                        <div class="fb-messengermessageus" 
                                               messenger_app_id="1011691685637550" 
                                               page_id="361699827595441"
-                                              color="blue"
+                                              color="white"
                                               size="xlarge" >
-                                        </div>
-                                        <!--
-                                        <p>
-                                            <br>Speech Recognition by clicking the "Speak" button
-                                        </p>
-                                            
-                                        <div>
-                                            
-                                            <input id="speech" type="text">
-                                            <button id="rec" class="btn pt-btn btn-primary">Speak</button>
-                                            
-                                            <div id="spokenResponse" class="spoken-response">
-                                            
-                                                <div class="spoken-response__text"></div>
-                                            
-                                            </div>
-                                            
-                                        </div>
-                                            <!--<div class="debug">
-                                                <div class="debug__btn btn">
-                                                Debug JSON results
-                                            </div>
-                                            <div class="debug__content">
-                                              <textarea id="response" cols="40" rows="20"></textarea>
-                                            </div>
-                                          </div>
-                                                    
-                                          <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet" type="text/css">
-                                        -->
-                                        <p>
-                                            <br><b>3. Live Chat Bot</b>
-                                        </p>
-                                        
-                                        <iframe
-                                            width="600"
-                                            height="350"
-                                            src="https://console.api.ai/api-client/demo/embedded/e60bfbf9-ebed-4cf0-96bc-610791787a5e">
-                                        </iframe>
-                                        
-                                    </div>
-                                
-                                </div>
-                            
-                            </div>
-                            
-                            <div class="portfolio-item">
-                                    
-                                <div class="caption">
-                                  
-                                    <div class="col-sm-12 col-md-12">
-                                          
-                                        <div class="caption">
-                                            
-                                            <p>
-                                                <h4>MY USER INTERFACE</h4>
-                                            </p>
-                                            <p>
-                                                An app to create, view, update and delete Bookings that syncs with a Salesforce custom object
-                                            </p>
-                                        
-                                        
-                                            <iframe style="height: 600px; width: 100%" src="/ninety_ten_bookings/" frameBorder="0"></iframe>
-                                            
-                                        </div> 
-                                        
-                                    </div>
-                                
-                                </div>
-                                
-                            </div>
-                            
-                            <div class="portfolio-item">
-                                    
-                                <div class="caption">
-                                  
-                                    <div class="col-sm-12 col-md-12">
-                                          
-                                        <div class="caption">
-                                                
-                                                <h4>MY SALESFORCE INTEGRATION</h4>
-                                            <p>
-                                                Fill in this form to generate a support ticket and obtain a salesforce case number via the entered email address.
-                                            </p>
-                                            
-                                            <div>
-                                                <!--  ----------------------------------------------------------------------  -->
-                                                <!--  NOTE: Please add the following <FORM> element to your page.             -->
-                                                <!--  ----------------------------------------------------------------------  -->
-                                                
-                                                <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
-                                                
-                                                <input type=hidden name='captcha_settings' value='{"keyname":"andrew","fallback":"true","orgId":"00D7F000000s7gb","ts":""}'>
-                                                <input type=hidden name="orgid" value="00D7F000000s7gb">
-                                                <input type=hidden name="retURL" value="https://ninetytensolutions.herokuapp.com/">
-                                                
-                                                <!--  ----------------------------------------------------------------------  -->
-                                                <!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
-                                                <!--  these lines if you wish to test in debug mode.                          -->
-                                                <!--  <input type="hidden" name="debug" value=1>                              -->
-                                                <!--  <input type="hidden" name="debugEmail"                                  -->
-                                                <!--  value="pereira.andrew@gmail.com">                                       -->
-                                                <!--  ----------------------------------------------------------------------  -->
-                                                
-                                                
-                                                <table id="table" width=300 border="0">				
-        				                            <tr>
-        					                            <td width="45%"><label for="name">Name</label></td>
-        					                            <td width="55%" align="center"><input  id="name" maxlength="80" name="name" size="20" type="text"/></td>
-        				                            </tr>
-        				                            <tr>
-        					                            <td width="45%"><label for="email">Email</label></td>
-        					                            <td width="55%" align="center"><input  id="email" maxlength="80" name="email" size="20" type="text"/></td>
-        				                            </tr>
-        				                            <tr>
-        					                            <td width="45%"><label for="phone">Phone</label></td>
-        					                            <td width="55%" align="center"><input  id="phone" maxlength="40" name="phone" size="20" type="text" /></td>
-        				                            </tr>
-        				                            <tr>
-        					                            <td width="45%"><label for="subject">Subject</label></td>
-        					                            <td width="55%" align="center"><input  id="subject" maxlength="80" name="subject" size="20" type="text" /></td>
-        				                            </tr>
-        				                            <tr>
-        					                            <td width="45%"><label for="description">Description</label></td>
-        					                            <td width="55%" align="center"><textarea name="description"></textarea><br></td>
-        				                            </tr>
-        				                        </table>
-        				                        
-                                                <input class="btn pt-btn btn-primary" type="submit" name="submit">
-                                                
-                                                </form>
-                                            </div>
-                                            
-                                        </div>
-                            
-                                    </div>
-                                
-                                </div>                                
-                            
-                            </div> 
-                        
                         </div>
-                    
+                      </div>
+                  </div>
+
+                  <div class="col-sm-6 col-md-4">
+                      <div class="caption">
+                        <h4>AI <B>CHAT</B></h4>
+                        <p>Live chat</p>
+                        <iframe
+                                            width="300"
+                                            height="300"
+                                            src="https://console.api.ai/api-client/demo/embedded/e60bfbf9-ebed-4cf0-96bc-610791787a5e">
+                        </iframe>
+                      </div>
+                  </div>
+                  
+                  <div class="col-sm-6 col-md-4">
+                      <div class="caption">
+                        <h4><b>ROBOTICS</b></h4>
+                        <p>Watch to see RPA in action.</p>
+                        <iframe width="300" height="300"
+                            src="https://www.youtube.com/embed/XGSy3_Czz8k">
+                        </iframe>
+                      </div>
+                  </div>
+                </div>
+                
+                <br>
+                <br>
+                <br>
+                
+                <div class="portfolio-item">
+                    <div class="caption">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="caption">
+                                    <h4>WEB <B>USER INTERFACE</B></h4>
+                                        <p>An app to create, view, update and delete Bookings that syncs with a Salesforce custom object</p>
+                                        <iframe style="height: 600px; width: 100%" src="/ninety_ten_bookings/" frameBorder="0"></iframe>
+                            </div> 
+                        </div>
                     </div>
+                </div>
+
+            </div>
                     
-                </div>    
+        </div>
+                    
+    </div>    
                 
             <!-- /container -->       
         </section>
