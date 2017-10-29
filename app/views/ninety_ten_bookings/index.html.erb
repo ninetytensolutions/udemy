@@ -23,8 +23,8 @@
 <% @ninety_ten_bookings.each do |ninety_ten_booking| %>
     <tr>
       <th scope="row"></th>
-      <td><%= ninety_ten_booking.id %></td>
-      <td><%= link_to ninety_ten_booking.firstname__c, ninety_ten_booking_path(ninety_ten_booking) %></td>
+      <td><%= link_to ninety_ten_booking.id, ninety_ten_booking_path(ninety_ten_booking) %></td>
+      <td><%= ninety_ten_booking.firstname__c %></td>
       <td><%= ninety_ten_booking.date__c  %></td>
       <td><%= ninety_ten_booking.guests__c  %></td>
       <td><%= ninety_ten_booking.status__c  %></td>

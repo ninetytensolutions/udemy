@@ -1,6 +1,7 @@
 <h2 align="center">Booking for: <%= @ninety_ten_booking.firstname__c %> <%= @ninety_ten_booking.lastname__c %></h2>
 <div class="well col-xs-8 col-xs-offset-2">
     <h4 class="center description"><strong>Booking Details</strong></h4>
+    <hr>Id: <%= @ninety_ten_booking.id %>
     <hr>Date: <%= @ninety_ten_booking.date__c %>
     <hr>Time: <%= @ninety_ten_booking.time__c.strftime("%H:%M") %>
     <hr>First Name: <%= @ninety_ten_booking.firstname__c %>
